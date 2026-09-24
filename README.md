@@ -1,4 +1,4 @@
-# [CTF Name] - Play Box
+# Operation Rabbit - Play Box
 
 A Capture The Flag (CTF) Play Box designed as part of Module IE3132 - Penetration Testing, Assignment: CTF Play Box Implementation
 
