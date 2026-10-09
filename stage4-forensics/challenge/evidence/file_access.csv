@@ -1,0 +1,5 @@
+timestamp,user,action,filename,case_id
+2026-08-01T09:15:02Z,rabbit,login,onboarding_portal,CASE-ONB-2048
+2026-08-01T09:38:11Z,lizard,login,onboarding_portal,CASE-ONB-2048
+2026-08-01T09:42:18Z,lizard,download,rabbit_id.jpg,CASE-ONB-2048
+2026-08-01T09:45:03Z,lizard,logout,onboarding_portal,CASE-ONB-2048
