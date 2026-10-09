@@ -1,0 +1,5 @@
+timestamp,user,event,service,result
+2026-08-01T09:15:02Z,rabbit,authentication,onboarding_portal,success
+2026-08-01T09:38:11Z,lizard,authentication,onboarding_portal,success
+2026-08-01T09:42:18Z,lizard,file_access,onboarding_storage,success
+2026-08-01T09:45:03Z,lizard,logout,onboarding_portal,success
