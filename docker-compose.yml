@@ -5,7 +5,7 @@ services:
   ports:
    - "8000:8000"
   environment:
-   - SECRET_KEY=xkN2Wt9fPLmt0lN3Nku+tfpRDaEQXqpl/5HblVVFiBo=
+   - SECRET_KEY=
    - DATABASE_URL=mysql+pymysql://ctfd:ctfd@db/ctfd
    # - REDIS_URL=redis://cache:6379
   volumes:
