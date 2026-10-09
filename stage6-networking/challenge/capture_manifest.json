@@ -1,0 +1,6 @@
+{
+    "file": "rabbit_traffic.pcap",
+    "format": "classic PCAP",
+    "sha256": "32147a09644903a42c31e6847f7de335c17f302ee9b7f3160948485bfa5a5a0e",
+    "purpose": "Synthetic offline CTF network traffic. Contains a normal session and a simulated transfer session."
+}
