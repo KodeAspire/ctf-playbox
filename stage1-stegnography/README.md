@@ -1,53 +1,35 @@
 # Stage 1: The Altered ID
 
-| Field | Details |
-|-------|---------|
-| **Stage ID** | STG-01 |
-| **Domain** | Steganography |
-| **Difficulty** | Easy |
-| **Author** | IT24100368 Thaveesha L.H.K |
+## Challenge Description
 
-## Scenario
-
-Ms. Fluffy Rabbit, a newly onboarded employee at Nile Technologies, 
-cannot access her account after a suspicious credential change. 
-
-Support Services approved the credential change based on an ID photo 
-submitted by someone claiming to be Ms. Rabbit. Security believes the 
-photo was modified and contains hidden information.
-
-You are the investigator assigned to examine the ID photo.
+An employee ID image may contain more information than is visible. Inspect the provided image carefully to discover the hidden message.
 
 ## Objective
 
-Download the provided ID card image and discover the hidden message 
-embedded within it. The hidden message will provide a clue for the 
-next stage.
+Inspect the image and extract the hidden message to find the flag.
 
-## Files Provided
+## Challenge File
 
-- `rabbit_id.jpg` - The suspicious ID card photo
+* `challenge/rabbit_id.jpg`
 
-## Tools You May Need
+## Suggested Tools
 
-- `exiftool` - To inspect image metadata
-- `steghide` - To detect and extract hidden data
-- `binwalk` - To detect embedded files (alternative)
-- `strings` - To find readable strings (alternative)
+* ExifTool
+* Steghide
 
-## Hints
+## Instructions
 
-1. Inspect the file before assuming it is an ordinary photograph.
-2. Look for tools designed to detect hidden data in files.
-3. The password for extraction is related to the scenario — try "rabbit".
+1. Inspect the image and its metadata using ExifTool.
+2. Use Steghide to check whether the image contains hidden data.
+3. Extract the hidden message using the password provided through the challenge hints.
+4. Find the flag in the extracted message.
+
+## Learning Objectives
+
+* Inspect image files and metadata.
+* Understand image steganography.
+* Identify and extract hidden data using Steghide.
 
 ## Flag Format
 
 `FLAG{...}`
-
-## Learning Outcome
-
-After completing this stage, you should be able to:
-- Inspect file metadata using ExifTool
-- Detect steganographic content in images
-- Extract hidden payloads using Steghide
