@@ -1,3 +1,1 @@
-# use to explain the steps to solve the problems
-
-
+#Add solution for stage 5

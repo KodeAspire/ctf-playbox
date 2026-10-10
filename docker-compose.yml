@@ -8,9 +8,9 @@ services:
       - SECRET_KEY=operation_rabbit_secret_key_123
       - DATABASE_URL=mysql+pymysql://ctfd:ctfd@db/ctfd
       - REDIS_URL=redis://cache:6379
-      - UPLOAD_FOLDER=/var/uploads
+      - UPLOAD_FOLDER=/var/lib/ctfd/uploads
     volumes:
-      - ctfd-data:/var/uploads
+      - ctfd-data:/var/lib/ctfd
     depends_on:
       - db
       - cache
@@ -31,10 +31,10 @@ services:
       - ctfdnet
 
   cache:
-    image: redis:alpine
+    image: redis:7
     restart: unless-stopped
     volumes:
-      - redis-data:/data
+      - cache-data:/data
     networks:
       - ctfdnet
 
@@ -50,7 +50,7 @@ services:
 volumes:
   ctfd-data:
   db-data:
-  redis-data:
+  cache-data:
 
 networks:
   ctfdnet:

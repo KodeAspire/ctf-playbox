@@ -1,0 +1,5 @@
+FICTIONAL TRAINING CASE
+Case identifier: CASE-ONB-2048
+Subject: Rabbit employee onboarding
+Relevant file: rabbit_id.jpg
+Review access and authentication records together.

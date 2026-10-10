@@ -1,0 +1,253 @@
+/* ===== Reset & Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f9;
+  color: #2c3e50;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Header ===== */
+header {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+  color: #ffffff;
+  padding: 20px 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+header .subtitle {
+  font-size: 13px;
+  color: #b8d4f0;
+  margin-top: 4px;
+}
+
+/* ===== Navigation ===== */
+nav {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e1e8ed;
+  padding: 0 40px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  display: block;
+  padding: 15px 0;
+  color: #4a5568;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+nav ul li a:hover {
+  color: #2c5282;
+  border-bottom-color: #2c5282;
+}
+
+/* ===== Main Content ===== */
+main {
+  flex: 1;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 35px 40px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e8edf2;
+}
+
+.card h2 {
+  color: #1e3a5f;
+  font-size: 22px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #edf2f7;
+}
+
+.card p {
+  margin-bottom: 12px;
+  color: #4a5568;
+}
+
+/* ===== Employee List ===== */
+.employee-list {
+  list-style: none;
+  margin-top: 15px;
+}
+
+.employee-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.employee-list li:last-child {
+  border-bottom: none;
+}
+
+.employee-list a {
+  color: #2c5282;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.employee-list a:hover {
+  color: #1e3a5f;
+  text-decoration: underline;
+}
+
+.employee-list .role {
+  color: #718096;
+  font-size: 13px;
+  margin-left: 8px;
+}
+
+/* ===== Profile Fields ===== */
+.profile-field {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.profile-field:last-child {
+  border-bottom: none;
+}
+
+.profile-field .label {
+  font-weight: 600;
+  color: #4a5568;
+  min-width: 180px;
+  font-size: 14px;
+}
+
+.profile-field .value {
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+/* ===== Project Card ===== */
+.project {
+  background: #f8fafc;
+  border-left: 4px solid #2c5282;
+  padding: 20px 25px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.project h3 {
+  color: #1e3a5f;
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+.project p {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+/* ===== Flag Box ===== */
+.flag-box {
+  background: #fff5f5;
+  border-left: 4px solid #e53e3e;
+  padding: 18px 22px;
+  border-radius: 6px;
+  margin-top: 20px;
+  font-family: 'Courier New', monospace;
+  font-size: 15px;
+  color: #c53030;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Back Link ===== */
+.back-link {
+  display: inline-block;
+  margin-top: 25px;
+  color: #2c5282;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* ===== Banner ===== */
+.banner {
+  background: linear-gradient(135deg, #ebf4ff 0%, #d6e9ff 100%);
+  border-radius: 8px;
+  padding: 25px 30px;
+  margin-bottom: 25px;
+  border-left: 4px solid #2c5282;
+}
+
+.banner h2 {
+  color: #1e3a5f;
+  font-size: 20px;
+  margin-bottom: 8px;
+  border: none;
+  padding: 0;
+}
+
+.banner p {
+  color: #4a5568;
+  font-size: 14px;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: #1e3a5f;
+  color: #b8d4f0;
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+  margin-top: auto;
+}
+
+/* ===== Warning Badge ===== */
+.warning {
+  display: inline-block;
+  background: #fed7d7;
+  color: #c53030;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+  header, nav { padding-left: 20px; padding-right: 20px; }
+  .card { padding: 25px 20px; }
+  .profile-field { flex-direction: column; }
+  .profile-field .label { min-width: auto; margin-bottom: 4px; }
+}
