@@ -4,3 +4,11 @@
 | ART-03b | 5 | Check sudo permissions | `(lizard) NOPASSWD: ALL` | PASS | Intended path found |
 | ART-03c | 5 | Check /etc/group | `legacy_proj:x:1002:lizard` | PASS | Stale privilege identified |
 | ART-03d | 5 | Solve Stage 5 via sudo -u lizard | Flag retrieved | PASS | FLAG{stale_gr0up_m3mb3rsh1p} |
+| ART-04 | 4 | Examine forensic evidence files | All 4 evidence files present | PASS | |
+| ART-04b | 4 | Correlate file_access.csv + authentication.log | Lizard downloaded rabbit_id.jpg at 2026-08-01T09:42:18Z | PASS | Case ID: CASE-ONB-2048 |
+| ART-04c | 4 | Verify SHA-256 evidence integrity | All 3 hashes match SHA256SUMS.json | PASS | Evidence untampered |
+| ART-06 | 6 | Open rabbit_traffic.pcap in Wireshark | Suspicious POST to /synthetic-transfer | PASS | Packet 11 → 203.0.113.66:8088 |
+| ART-06b | 6 | Follow HTTP Stream | Transfer ID found | PASS | XFER-6F2A-ONB2048 |
+| ART-06c | 6 | Identify exfiltration destination | Recipient identified | PASS | fish@badcomp.com |
+| ART-06d | 6 | Verify PCAP SHA-256 | Matches manifest | PASS | 32147a09...a5a0e |
+| ART-06e | 6 | Confirm intended solution path | Flag derived from PCAP | PASS | FLAG{...} |
