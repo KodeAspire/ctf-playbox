@@ -17,3 +17,6 @@
 | ART-06 | 6 | Open PCAP in Wireshark | Suspicious POST found | PASS | Packet 11 → 203.0.113.66:8088 |
 | ART-06b | 6 | Follow HTTP Stream | Transfer details extracted | PASS | XFER-6F2A-ONB2048, fish@badcomp.com |
 | ART-06c | 6 | Verify PCAP SHA-256 | Matches manifest | PASS | |
+| DEF-08 | Deployment | seed.sql auto-init fails | DB empty on first boot | FIXED | Root cause: MariaDB runs init scripts before CTFd creates schema. Workaround: import seed.sql after CTFd starts. |
+| DEF-09 | Integration | Challenge artifacts not attached in seed.sql | Files tab empty in Admin Panel | OPEN | Reported to Member 1, re-exporting seed.sql with files |
+| DEF-10 | Integration | Player view only shows Introduction | Stages 1-6 hidden/locked | EXPECTED | Challenges require Intro to be solved first (prerequisite chain) |

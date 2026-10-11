@@ -6,14 +6,25 @@ BASE_URL = "http://localhost:8000"
 TEST_USER = "member4tester"
 TEST_PASS = "TestPass123!"
 
+STAGE_ORDER = [
+    "Welcome to Operation: Rabbit!",
+    "CASE FILE Stage 0001 - \"The Altered ID\"",
+    "CASE FILE Stage 0002 - The Lizard Cipher",
+    "CASE FILE Stage 0003 - \"Who is Lizard?\"",
+    "CASE FILE Stage 0004 -",
+    "CASE FILE Stage 0005 - \"The Forgotten Permission\"",
+    "CASE FILE Stage 0006 - \"The Final Trace\"",  # verify exact name
+]
+
 # We will replace these with real flags later
 FLAGS = {
-    1: "FLAG{stage1_dummy_flag}",
-    2: "FLAG{stage2_dummy_flag}",
-    3: "FLAG{stage3_dummy_flag}",
-    4: "FLAG{stage4_dummy_flag}",
-    5: "FLAG{stage5_dummy_flag}",
-    6: "FLAG{stage6_dummy_flag}",
+    "Welcome to Operation: Rabbit!":       "FLAG{stgae_0_inestigator_welcome}",  # ask Member 1
+    "CASE FILE Stage 0001 - \"The Altered ID\"": "FLAG{St3g4n0gr4phy_1s_Fun}",  # ask Member 3
+    "CASE FILE Stage 0002 - The Lizard Cipher":  "FLAG{l1z4rd_c1ph3r}",
+    "CASE FILE Stage 0003 - \"Who is Lizard?\"": "FLAG{lz_042_0n_b0arding}",
+    "CASE FILE Stage 0004 -":                   "FLAG{l1z4rd_r4bb1t_1d_2026-08-01T09:42:18Z_CASE-ONB-2048}",
+    "CASE FILE Stage 0005 - \"The Forgotten Permission\"": "FLAG{stale_gr0up_m3mb3rsh1p}",
+    "CASE FILE Stage 0006 - \"The Final Trace\"": "FLAG{XFER-6F2A-ONB2048}",
 }
 
 session = requests.Session()
