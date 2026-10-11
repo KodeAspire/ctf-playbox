@@ -27,6 +27,7 @@ services:
       - MARIADB_DATABASE=ctfd
     volumes:
       - db-data:/var/lib/mysql
+      - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql:ro
     networks:
       - ctfdnet
 
@@ -45,15 +46,7 @@ services:
     ports:
       - "2222:22"
     networks:
-      - stage5_net
-
-  stage5-linux:
-    build: ./challenges/stage5-linux
-    restart: unless-stopped
-    ports:
-      - "2222:22"
-    networks:
-      - challnet
+      - ctfdnet
 
 volumes:
   ctfd-data:
@@ -62,10 +55,4 @@ volumes:
 
 networks:
   ctfdnet:
-    driver: bridge
-  stage5_net:
-    driver: bridge
-   ctfdnet:
-     driver: bridge
-   challnet:
-     driver: bridge   
+    driver: bridge 
