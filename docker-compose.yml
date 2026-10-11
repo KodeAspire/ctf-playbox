@@ -61,14 +61,11 @@ volumes:
   cache-data:
 
 networks:
-<<<<<<< HEAD
   ctfdnet:
     driver: bridge
   stage5_net:
     driver: bridge
-=======
    ctfdnet:
      driver: bridge
    challnet:
      driver: bridge   
->>>>>>> main
