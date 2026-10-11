@@ -47,13 +47,28 @@ services:
     networks:
       - stage5_net
 
+  stage5-linux:
+    build: ./challenges/stage5-linux
+    restart: unless-stopped
+    ports:
+      - "2222:22"
+    networks:
+      - challnet
+
 volumes:
   ctfd-data:
   db-data:
   cache-data:
 
 networks:
+<<<<<<< HEAD
   ctfdnet:
     driver: bridge
   stage5_net:
     driver: bridge
+=======
+   ctfdnet:
+     driver: bridge
+   challnet:
+     driver: bridge   
+>>>>>>> main
