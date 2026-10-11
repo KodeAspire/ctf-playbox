@@ -1,0 +1,61 @@
+services:
+  ctfd:
+    image: ctfd/ctfd:3.8.8
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - SECRET_KEY=operation_rabbit_secret_key_123
+      - DATABASE_URL=mysql+pymysql://ctfd:ctfd@db/ctfd
+      - REDIS_URL=redis://cache:6379
+      - UPLOAD_FOLDER=/var/lib/ctfd/uploads
+    volumes:
+      - ctfd-data:/var/lib/ctfd
+    depends_on:
+      - db
+      - cache
+    networks:
+      - ctfdnet
+
+  db:
+    image: mariadb:10.11
+    restart: unless-stopped
+    environment:
+      - MARIADB_ROOT_PASSWORD=ctfd
+      - MARIADB_USER=ctfd
+      - MARIADB_PASSWORD=ctfd
+      - MARIADB_DATABASE=ctfd
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql:ro
+    networks:
+      - ctfdnet
+
+  cache:
+    image: redis:7
+    restart: unless-stopped
+    volumes:
+      - cache-data:/data
+    networks:
+      - ctfdnet
+
+  stage5-linux:
+    build: ./stage5-linux
+    container_name: stage5-linux
+    restart: unless-stopped
+    ports:
+      - "2222:22"
+    networks:
+      - stage5_net
+
+volumes:
+  ctfd-data:
+  db-data:
+  cache-data:
+
+networks:
+  ctfdnet:
+    driver: bridge
+  stage5_net:
+    driver: bridge
+    

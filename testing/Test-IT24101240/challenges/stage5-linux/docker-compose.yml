@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  stage5-linux:
+    build: .
+    container_name: stage5-linux
+    ports:
+      - "2222:22"
+    networks:
+      - stage5_net
+
+networks:
+  stage5_net:
+    driver: bridge
+    
