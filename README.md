@@ -21,16 +21,16 @@ log in to her company account. The challenge follows six stages with increasing
 
 The box is designed to be deployed locally by anyone with Docker.
 
-bash
-git clone <REPO_URL>
+# bash
+git clone https://github.com/KodeAspire/ctf-playbox.git
 cd ctf-playbox
 docker compose up -d
 
-Wait ~30 seconds for initialization, then open:
+# Wait ~30 seconds for initialization, then open:
 
 CTF Platform: http://localhost:8000
 
-Requirements
+## Requirements
 
 Docker Engine 24.0 or later
 Docker Compose v2.0 or later
@@ -39,7 +39,7 @@ Docker Compose v2.0 or later
 Linux, macOS, or Windows (with Docker Desktop)
 No external dependencies or internet access is required once images are pulled.
 
-# Quick Start
+## Quick Start
 
 git clone <REPO_URL>
 cd ctf-playbox
@@ -47,7 +47,7 @@ docker compose up -d
 Navigate to http://localhost:8000 in a browser.
 Click Register and create an account. You will be dropped into the first stage.
 
-Services
+## Services
 
 Service	Network	Purpose	Port
 ctfd	ctfdnet	CTF platform	8000 (host)
@@ -60,20 +60,22 @@ Network Segmentation
 
 ctfdnet — Platform services only. Contains CTFd, its database, and Redis.
 challnet — Challenge services only. Contains the Stage 5 container and the Stage 3 intranet.
-Containers on different Docker networks cannot reach each other by default. This means:
+Containers on different Docker networks cannot reach each other by default. 
+
+This means:
 
 The Stage 5 challenge container cannot reach CTFd, the database, or Redis.
 The Stage 3 intranet server cannot reach the platform.
 Even if a player fully compromises the challenge container, they cannot pivot to the CTF platform.
 Firewall
 
-The Ubuntu VM uses UFW to restrict inbound traffic.
+## The Ubuntu VM uses UFW to restrict inbound traffic.
 
 bash
 sudo ufw status
 Expected rules:
 
-Port	Purpose
+## Port	Purpose
 22/tcp	Admin SSH (optional — disable if managing via console)
 8000/tcp	CTFd platform
 8080/tcp	Stage 3 intranet
@@ -81,24 +83,26 @@ Port	Purpose
 All other ports are denied by default.
 
 Note on Docker and UFW: Docker manipulates iptables directly and can bypass UFW rules for published container ports. Only ports explicitly published in docker-compose.yml should be considered exposed. The rules above ensure the host's own services (SSH, etc.) remain protected.
-Challenge Progression
+
+## Challenge Progression
 
 Six stages across six cybersecurity domains, with a shared narrative.
 
-Stage	Title	Domain	Difficulty
-1	The Altered ID	Steganography	Easy
-2	The Lizard Cipher	Cryptography	Easy
-3	Who is Lizard?	OSINT / Reconnaissance	Moderate
-4	The Onboarding Evidence	Digital Forensics	Moderate
-5	The Forgotten Permission	Linux / System Security	Moderate–Hard
-6	The Final Trace	Networking	Hard
+
+1	The Altered ID - Steganography -	Easy
+2	The Lizard Cipher -	Cryptography -	Easy
+3	Who is Lizard? - OSINT / Reconnaissance - 	Moderate
+4	The Onboarding Evidence	- Digital Forensics -	Moderate
+5	The Forgotten Permission - Linux / System Security	- Moderate–Hard
+6	The Final Trace	- Networking	- Hard
+
 Stages unlock sequentially. Each flag is formatted as FLAG{...}.
 
-Reset / Recovery
+## Reset / Recovery
 
 Two reset scripts are included at the repository root.
 
-Full platform reset
+## Full platform reset
 
 Wipes all data (users, scores, submissions) and restores the CTF from the seed.
 
@@ -127,7 +131,7 @@ bash
 ./verify-deployment.sh
 It checks:
 
-Container status
+## Container status
 CTFd reachability (HTTP)
 Stage 5 SSH port availability
 Stage 3 intranet port availability
@@ -136,7 +140,7 @@ Isolation — confirms the Stage 5 container cannot resolve ctfd
 UFW rules
 Directory Structure
 
-text
+## repo structure
 ctf-playbox/
 ├── docker-compose.yml       # Service definitions and network config
 ├── seed.sql                 # Pre-seeded challenges, users, and flags
@@ -144,14 +148,15 @@ ctf-playbox/
 ├── reset-stage5.sh          # Stage 5 container reset
 ├── verify-deployment.sh     # Deployment and isolation verification
 ├── README.md
-├── challenges/
-│   ├── stage1/              # Steganography challenge files
-│   ├── stage2/              # Cryptography challenge files
+├── stage1/                  # Steganography challenge files
+├── stage2/                  # Cryptography challenge files
+├── stage4-forensics/        # Evidence files
+│── stage6-networking/       # Packet capture evidence
+├── challenges/        
 │   ├── stage3-osint/        # Intranet HTML pages
-│   ├── stage4-forensics/    # Evidence files
 │   ├── stage5-linux/        # Dockerfile and source for the SSH challenge
-│   └── stage6-networking/   # Packet capture evidence
-Manual Deployment Notes
+
+## Manual Deployment Notes
 
 First-time setup
 
@@ -165,7 +170,7 @@ Build and start the Stage 5 challenge container.
 Start the Stage 3 intranet server.
 Total startup time on a fresh machine: 30–60 seconds.
 
-Stopping the box
+## Stopping the box
 
 bash
 docker compose down
@@ -175,7 +180,7 @@ bash
 docker compose down -v
 The next up will re-seed from seed.sql.
 
-Viewing logs
+## Viewing logs
 
 bash
 docker compose logs -f <service>
@@ -219,7 +224,7 @@ bash
 docker compose restart ctfd
 Firewall blocking access from Kali VM
 
-Ensure UFW has rules for ports 8000, 8080, and 2222:
+## Ensure UFW has rules for ports 8000, 8080, and 2222:
 
 bash
 sudo ufw allow 8000/tcp
@@ -227,14 +232,15 @@ sudo ufw allow 8080/tcp
 sudo ufw allow 2222/tcp
 Security Model
 
-Control	Implementation
+## Control	Implementation
 Network isolation	Separate Docker bridge networks (ctfdnet / challnet)
 Host firewall	UFW — only required ports exposed
 CTFd authentication	Role-based (admin / player), public registration enabled
 Flag validation	Platform-based (CTFd submissions table)
 Stage 5 privilege separation	Low-privilege investigator account; escalation limited to sudo -u lizard
 Evidence integrity (Stage 4)	SHA-256 hash manifest provided to players
-Acknowledgments
+
+## Acknowledgments
 
 CTFd — CTF platform (https://github.com/CTFd/CTFd)
 MariaDB — database
@@ -245,14 +251,6 @@ Wireshark — packet capture analysis (Stage 6)
 Autopsy — used to generate Stage 4 forensics evidence
 Challenge development and content by Group 39. Platform, architecture, and infrastructure by Member 1.
 
-
-
-
-
-
-# CTF Play Box Implementation -  Project Initiation Report
-
-This report is maintained separately on, [Here](https://mysliit-my.sharepoint.com/:w:/g/personal/it24102109_my_sliit_lk/IQBgwddWhyFzS7u1sAVYwFjEAf_jXrKetCyVBrPF1R1ZC0s?e=sWVGhs)
 
 
 
