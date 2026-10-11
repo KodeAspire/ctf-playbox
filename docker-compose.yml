@@ -37,7 +37,7 @@ services:
     volumes:
       - cache-data:/data
     networks:
-      - stage5_net
+      - ctfdnet
 
   stage5-linux:
     build: ./stage5-linux

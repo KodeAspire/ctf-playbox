@@ -47,3 +47,7 @@ by this CTFd build's CSRF configuration. Documented as DEF-13.
 | ISO-01 | Stage 5 → CTFd | BLOCKED | PASS |
 | ISO-02 | Stage 5 → DB | BLOCKED | PASS |
 | ISO-03 | Stage 5 → Internet | BLOCKED (with internal:true) OR open (documented) | PARTIAL |
+| ISO-01 | Stage 5 → CTFd container | BLOCKED | PASS |
+| ISO-02 | Stage 5 → DB container | BLOCKED | PASS |
+| ISO-03 | Stage 5 → Internet | REACHABLE | DEF-14 | 
+DEF-14: Stage 5 network (stage5_net) is isolated from the CTFd platform network, blocking access to CTFd and DB containers. Internet egress is not blocked at the network level — this requires additional iptables rules on the Docker host. Documented as a limitation; the primary security boundary (platform isolation) works as designed.
