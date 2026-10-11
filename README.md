@@ -140,21 +140,6 @@ Isolation — confirms the Stage 5 container cannot resolve ctfd
 UFW rules
 Directory Structure
 
-## repo structure
-ctf-playbox/
-├── docker-compose.yml       # Service definitions and network config
-├── seed.sql                 # Pre-seeded challenges, users, and flags
-├── reset-all.sh             # Full platform reset
-├── reset-stage5.sh          # Stage 5 container reset
-├── verify-deployment.sh     # Deployment and isolation verification
-├── README.md
-├── stage1/                  # Steganography challenge files
-├── stage2/                  # Cryptography challenge files
-├── stage4-forensics/        # Evidence files
-│── stage6-networking/       # Packet capture evidence
-├── challenges/        
-│   ├── stage3-osint/        # Intranet HTML pages
-│   ├── stage5-linux/        # Dockerfile and source for the SSH challenge
 
 ## Manual Deployment Notes
 
