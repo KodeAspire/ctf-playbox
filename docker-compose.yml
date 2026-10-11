@@ -37,7 +37,7 @@ services:
     volumes:
       - cache-data:/data
     networks:
-      - ctfdnet
+      - stage5_net
 
   stage5-linux:
     build: ./stage5-linux
@@ -46,7 +46,7 @@ services:
     ports:
       - "2222:22"
     networks:
-      - ctfdnet
+      - stage5_net
 
 volumes:
   ctfd-data:
@@ -55,4 +55,7 @@ volumes:
 
 networks:
   ctfdnet:
-    driver: bridge 
+    driver: bridge
+  stage5_net:
+    driver: bridge
+    
