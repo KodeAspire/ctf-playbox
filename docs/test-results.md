@@ -12,3 +12,8 @@
 | ART-06c | 6 | Identify exfiltration destination | Recipient identified | PASS | fish@badcomp.com |
 | ART-06d | 6 | Verify PCAP SHA-256 | Matches manifest | PASS | 32147a09...a5a0e |
 | ART-06e | 6 | Confirm intended solution path | Flag derived from PCAP | PASS | FLAG{...} |
+| ART-03 | 3 | Open Stage 3 OSINT pages in browser | Lizard profile + connections found | PASS | |
+| ART-03b | 3 | Find confidential record | Record LZ-042 shows Rabbit's ID access | PASS | Flag: FLAG{lz_042_0n_b0arding} |
+| ART-06 | 6 | Open PCAP in Wireshark | Suspicious POST found | PASS | Packet 11 → 203.0.113.66:8088 |
+| ART-06b | 6 | Follow HTTP Stream | Transfer details extracted | PASS | XFER-6F2A-ONB2048, fish@badcomp.com |
+| ART-06c | 6 | Verify PCAP SHA-256 | Matches manifest | PASS | |
